@@ -9,6 +9,7 @@ const noop = (token: string) => token
 const typesToDecoders: Record<SupportedAuthTypes, Function> = {
   auth0: auth0,
   netlify: netlify,
+  netlifyOAuth: noop,
   goTrue: netlify,
   magicLink: noop,
   firebase: noop,

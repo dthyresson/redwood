@@ -16,6 +16,8 @@
     "gotrue-js": "git://github.com/netlify/gotrue-js.git#28df09cfcac505feadcb1719714d2a9507cf68eb",
     "magic-sdk": "^1.3.5",
     "netlify-identity-widget": "1.6.0",
+    "node-fetch": "^2.6.0",
+    "query-string": "^6.13.1",
     "react": "^16.13.1"
   },
   "bundlesize": [

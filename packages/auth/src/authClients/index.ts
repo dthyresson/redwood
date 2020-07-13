@@ -1,4 +1,5 @@
 import type { NetlifyIdentity } from './netlify'
+import type { NetlifyOAuth, NetlifyUser } from './netlifyOAuth'
 import type { Auth0, Auth0User } from './auth0'
 import type { GoTrue, GoTrueUser } from './goTrue'
 import type { MagicLink, MagicUser } from './magicLink'
@@ -6,6 +7,7 @@ import type { Firebase } from './firebase'
 import type { Custom } from './custom'
 //
 import { netlify } from './netlify'
+import { netlifyOAuth } from './netlifyOAuth'
 import { auth0 } from './auth0'
 import { goTrue } from './goTrue'
 import { magicLink } from './magicLink'
@@ -14,6 +16,7 @@ import { custom } from './custom'
 
 const typesToClients = {
   netlify,
+  netlifyOAuth,
   auth0,
   goTrue,
   magicLink,
@@ -26,6 +29,7 @@ export type SupportedAuthClients =
   | Auth0
   | GoTrue
   | NetlifyIdentity
+  | NetlifyOAuth
   | MagicLink
   | Firebase
   | Custom
@@ -35,7 +39,12 @@ export type SupportedAuthTypes = keyof typeof typesToClients
 export type { Auth0User }
 export type { GoTrueUser }
 export type { MagicUser }
-export type SupportedUserMetadata = Auth0User | GoTrueUser | MagicUser
+export type { NetlifyUser }
+export type SupportedUserMetadata =
+  | Auth0User
+  | GoTrueUser
+  | MagicUser
+  | NetlifyUser
 
 export interface AuthClient {
   restoreAuthState?(): void | Promise<any>
