@@ -5,7 +5,8 @@ const LocationContext = createNamedContext('Location')
 const LocationProvider = ({ location = window.location, children }) => {
   const getContext = React.useCallback(() => {
     const { pathname, search, hash } = location
-    return { pathname, search, hash }
+    const params = new URLSearchParams(search)
+    return { pathname, search, params, hash }
   }, [location])
 
   const [context, setContext] = React.useState(getContext())
