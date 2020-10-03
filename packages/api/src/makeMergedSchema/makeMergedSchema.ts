@@ -4,7 +4,7 @@ import {
   IResolvers,
   IExecutableSchemaDefinition,
 } from 'apollo-server-lambda'
-import { mergeTypes } from 'merge-graphql-schemas'
+import { mergeTypeDefs } from '@graphql-tools/merge'
 import merge from 'lodash.merge'
 import omitBy from 'lodash.omitby'
 import { GraphQLSchema, GraphQLFieldMap } from 'graphql'
@@ -59,10 +59,7 @@ const mergeResolversWithServices = ({
   resolvers: { [key: string]: any }
   services: Services
 }): IResolvers => {
-  const mergedServices = merge(
-    {},
-    ...Object.keys(services).map((name) => services[name])
-  )
+  const mergedServices = merge({}, {})
 
   // Get a list of types that have fields.
   // TODO: Figure out if this would interfere with other types: Interface types, etc.`
@@ -155,10 +152,12 @@ export const makeMergedSchema = ({
   services: Services
   schemaDirectives?: IExecutableSchemaDefinition['schemaDirectives']
 }) => {
-  const typeDefs = mergeTypes(
-    [rootSchema.schema, ...Object.values(schemas).map(({ schema }) => schema)],
-    { all: true }
-  )
+  const types = [
+    rootSchema.schema,
+    ...Object.values(schemas).map(({ schema }) => schema),
+  ]
+  console.log(JSON.stringify(types))
+  const typeDefs = mergeTypeDefs(types)
 
   const schema = makeExecutableSchema({
     typeDefs,
