@@ -18098,10 +18098,10 @@ webpack-merge@5.1.2:
     clone-deep "^4.0.1"
     wildcard "^2.0.0"
 
-webpack-retry-chunk-load-plugin@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/webpack-retry-chunk-load-plugin/-/webpack-retry-chunk-load-plugin-1.4.0.tgz#8ec191d9e431efec6ea24cd3251a753e75a56d18"
-  integrity sha512-R9Esfu/uQ8GX85mxcmfebmCuVjwaVaACQsaJNj3JE0xiYoHqXbubg+kRPnKgfNhYLYn6oHSK1MtH79o24rdYpw==
+webpack-retry-chunk-load-plugin@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/webpack-retry-chunk-load-plugin/-/webpack-retry-chunk-load-plugin-1.5.0.tgz#31ef4ecabd08d96c315be78d552134fd22d7ec21"
+  integrity sha512-mE3YBQX0Ho09uQpnrCVOuwtnMbu8Ydzx6rF0lETxQnZpAf9fz/KL1HxOFDsyhPG9dH0nmCsCEj0reWhY65NJUQ==
   dependencies:
     prettier "^1.19.1"
 
